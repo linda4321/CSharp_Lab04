@@ -1,0 +1,116 @@
+﻿<Window x:Class="Lab04Magur.Views.FilterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab04Magur.Views"
+        mc:Ignorable="d"
+        Title="FilterWindow" Height="300" Width="400">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Specify values to filter by. If you don't want to filter by property, left it blank" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by first name"></TextBlock>
+            <TextBox Width="200" Text="{Binding FirstNameFilter, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="2" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by last name"></TextBlock>
+            <TextBox Width="200" Text="{Binding LastNameFilter, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="3" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by email"></TextBlock>
+            <TextBox Width="200" Text="{Binding EmailFilter, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="4" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type DatePicker}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by date"></TextBlock>
+            <DatePicker Grid.Column="1" Grid.Row="3" SelectedDateFormat="Short" SelectedDate="{Binding DateOfBirthFilter, Mode=TwoWay}"></DatePicker>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="5" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by western zodiac"></TextBlock>
+            <ComboBox ItemsSource="{Binding WesternZodiacs}" SelectedItem="{Binding WesternZodiacFilter, Mode=TwoWay}"></ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="6" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by chineese zodiac"></TextBlock>
+            <ComboBox ItemsSource="{Binding ChineeseZodiacs}" SelectedItem="{Binding ChineeseZodiacFilter, Mode=TwoWay}"></ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="7" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by IsAdult property"></TextBlock>
+
+            <CheckBox Content="true" IsChecked="{Binding IsAdultFilter, Mode=TwoWay}" ></CheckBox>
+            <CheckBox Content="false" IsChecked="{Binding IsNotAdultFilter, Mode=TwoWay}"></CheckBox>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="8" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Margin" Value="10, 0, 0, 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Filter by IsBirthday property"></TextBlock>
+            <CheckBox Content="true" IsChecked="{Binding IsBirthdayFilter, Mode=TwoWay}"></CheckBox>
+            <CheckBox Content="false" IsChecked="{Binding IsNotBirthdayFilter, Mode=TwoWay}"></CheckBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="9" HorizontalAlignment="Center">
+            <Button Content="Filter" VerticalAlignment="Center" Width="50" Command="{Binding FilterApplyAndClose}" Margin="0, 0, 0, 0"></Button>
+            <Button Content="Cancel" VerticalAlignment="Center" Width="50" Command="{Binding FilterClose}" Margin="100, 0, 0, 0"></Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
